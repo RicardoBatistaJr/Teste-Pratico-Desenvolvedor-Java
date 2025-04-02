@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "9292:9292"
+    environment:
+      - PORT=9292
+      - SPRING_DATASOURCE_URL=jdbc:hsqldb:file:/database/reservationdb/reservationdb;hsqldb.lock_file=false
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=sa
+    volumes:
+      - ./database/reservationdb:/database/reservationdb
+    depends_on:
+      - db-init
+
+  db-init:
+    image: openjdk:11-jre-slim
+    command: mkdir -p /data
+    volumes:
+      - reservationdb-data:/data
+
+volumes:
+  reservationdb-data:

@@ -151,7 +151,7 @@ ___
 {
   "parkingSpotId": 0, // Id da vaga de estacionamento a ser reservada
   "clientId": 0, // Id do cliente solicitante da reserva
-  "startTime": "2025-04-02T16:31:37.585Z" // Data para qual a vaga será reservada
+  "startTime": "2025-04-02T16:31:37.585Z" // Data para qual a vaga será reservada (Data de reserva deve ser superior a data atual)
 }
 ```
 #### Responses
